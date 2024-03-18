@@ -1,0 +1,288 @@
+/** @format */
+:root {
+  --tab-land--large: 75em; /*1200px*/
+  --tab-land--small: 63.9375em; /*1023px*/
+  --tab-port--large: 56.25em; /*900px*/
+  --tab-port--small: 45.1875em; /*723px*/
+  --phone-large: 37.5em; /*600px*/
+  --phone-small: 26.4375em; /*423px*/
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before *::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; /*10px/16px = 62.5% -> 1rem = 10px*/
+  font-family: "Barlow", "Fraunces", sans-serif;
+  line-height: 1;
+
+  @media only screen and (max-width: 75em) {
+    font-size: 50%;
+  }
+
+  @media only screen and (max-width: 63.9375em) {
+    font-size: 46.875%;
+  }
+}
+
+body {
+  display: grid;
+  place-items: center; /* Center the grid items both vertically and horizontally */
+  background-image: linear-gradient(to right, #e37fdd, #ed0e98);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh; /* Full viewport height */
+
+  /* @media only screen and (max-width: 63.9375em) {
+    height: auto;
+  }
+
+  @media only screen and (max-width: 56.25rem) {
+    display: grid;
+    place-items: center;
+    background-image: linear-gradient(to right, #e37fdd, #ed0e98);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+  } */
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(min-content, 325px));
+  min-height: 90vh;
+  border-radius: 2rem;
+  overflow: hidden;
+
+  @media only screen and (max-width: 63.9375em) {
+    min-height: 80vh;
+    grid-template-columns: repeat(2, minmax(min-content, 300px));
+  }
+
+  @media only screen and (max-width: 56.25em) {
+    grid-template-columns: repeat(auto-fill, 275px);
+  }
+
+  @media only screen and (max-width: 37.5em) {
+    min-height: 65vh;
+  }
+}
+
+.logo {
+  width: 8rem;
+  border-radius: 50%;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 2rem;
+}
+
+.logo-hd {
+  @media only screen and (max-width: 56.25em) {
+    display: none;
+  }
+}
+
+.logo-sign {
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 6rem;
+  @media only screen and (max-width: 37.5em) {
+    margin: 1rem 0;
+  }
+}
+
+.logo:hover {
+  outline: none;
+  animation: pulsate 1s infinite;
+}
+
+.heading-1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  font-size: 3rem;
+  display: inline-block;
+  background-image: linear-gradient(to right, #ed0e98, #e37fdd);
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 0.2rem;
+  transition: all 0.2s;
+}
+
+.heading-1--sm {
+  background-image: linear-gradient(to right, #e37fdd, #ed0e98);
+  margin-bottom: 2rem;
+}
+
+.content-link {
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  justify-self: baseline;
+  transition: all 0.3s;
+
+  a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    font-size: 2rem;
+    display: inline-block;
+    background-image: linear-gradient(to right, #e37fdd, #ed0e98);
+    -webkit-background-clip: text;
+    color: transparent;
+    letter-spacing: 0.2rem;
+    transition: all 0.2s;
+  }
+}
+
+.content-link-dark {
+  display: inline-block;
+  padding: 0;
+  border-bottom: 2px solid #e37fdd;
+  margin: 2rem 1rem;
+
+  a {
+    font-size: 1.2rem;
+  }
+}
+
+.content-link:hover {
+  outline: none;
+  animation: pulsate 1s infinite;
+}
+
+.image {
+  background-image: url(./img/headphone.jpg);
+  background-size: cover;
+  background-position: center;
+  display: grid;
+  align-content: end;
+  grid-gap: 2rem;
+  grid-template-columns: min-content max-content;
+  align-items: center;
+  @media only screen and (max-width: 56.25em) {
+    grid-template-columns: max-content;
+  }
+
+  .image-content {
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-rows: max-content max-content;
+    align-items: center;
+    margin: 4rem;
+
+    .heading-1:hover {
+      transform: skewY(2deg) skewX(15deg) scale(1);
+      text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.4);
+    }
+  }
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.25);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+}
+
+.sign {
+  display: grid;
+  background-color: #fff;
+  grid-gap: 2.5rem;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+
+  .form-group {
+    display: grid;
+    align-items: center;
+    margin: 1rem 0;
+
+    .form__input {
+      width: 90%;
+      font-size: 1.5rem;
+      background-color: rgba(225, 225, 225, 0.5);
+      color: #ed0e98;
+      border: none;
+      border-radius: 2px;
+      padding: 1.5rem 2rem;
+      border-bottom: 3px solid transparent;
+    }
+
+    .form__input:focus {
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.25);
+      border-bottom: 3px solid #e37fdd;
+    }
+    .form__input:focus:invalid {
+      border-bottom: 3px solid #f00a0a;
+    }
+
+    .form__input::-webkit-input-placeholder {
+      background-image: linear-gradient(to right, #e37fdd, #ed0e98);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .form__label {
+      font-size: 1.4rem;
+      text-align: left;
+      margin-left: 2rem;
+      margin-top: 0.7rem;
+      background-image: linear-gradient(to right, #e37fdd, #ed0e98);
+      -webkit-background-clip: text;
+      color: transparent;
+      display: block;
+      transition: all 0.3s;
+    }
+
+    .form__input:placeholder-shown + .form__label {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-5rem);
+    }
+  }
+
+  .btn__sign-up {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.5rem;
+    background: linear-gradient(to right, #e37fdd, #ed0e98);
+    justify-self: baseline;
+    transition: all 0.3s;
+    border: none;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 2rem 0;
+    border-radius: 2px;
+    transition: all 0.2s;
+  }
+
+  .btn__sign-up:hover {
+    outline: none;
+    color: gray;
+    animation: pulsate 1s infinite;
+  }
+
+  p {
+    font-size: 1.3rem;
+  }
+}
